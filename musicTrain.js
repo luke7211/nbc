@@ -86,18 +86,23 @@ setChordCountsInLabels();
 setProbabilityOfChordsInLabels();
 
 function classify(chords){
-	var ttal = labelProbabilities; console.log(ttal);
-	var classified = {}; Object.keys(ttal).forEach(function(obj){
-	var first = labelProbabilities[obj] + 1.01; chords.forEach(function(chord){
-	var probabilityOfChordInLabel = probabilityOfChordsInLabels[obj][chord];
-	if(probabilityOfChordInLabel === undefined){ first + 1.01;
-	}else{
-	first = first * (probabilityOfChordInLabel + 1.01);
-	} });
-	        classified[obj] = first;
-	      });
-	      console.log(classified);
-	};
+	var total = labelProbabilities; 
+	console.log(total);
+	var classified = {}; 
+	Object.keys(total).forEach(function(obj){
+		var first = labelProbabilities[obj] + 1.01; 
+		chords.forEach(function(chord){
+			var probabilityOfChordInLabel = probabilityOfChordsInLabels[obj][chord];
+			if(probabilityOfChordInLabel === undefined){
+				first + 1.01;
+			}else{
+				first = first * (probabilityOfChordInLabel + 1.01);
+			} 
+		});
+		classified[obj] = first;
+	});
+	console.log(classified);
+};
 
 classify(['d', 'g', 'e', 'dm']);
 classify(['f#m7', 'a', 'dadd9', 'dmaj7', 'bm', 'bm7', 'd', 'f#m']);
