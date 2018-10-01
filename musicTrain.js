@@ -5,6 +5,9 @@ function fileName(){
 	return /\/(\w+\.js)\:/.exec(theError.stack)[1];
 };
 
+function welcomeMessage(){
+	return `Welcome to ${fileName()}!`;
+};
 
 var easy = 'easy'; 
 var medium = 'medium'; 
@@ -125,6 +128,6 @@ describe('the file', function() {
 		wish(classified.get('hard') === 1.855758613168724);
 	});
 	it('sets welcome message', function(){
-		console.log(`Welcome to ${fileName()}!`);
+		wish(welcomeMessage() === 'Welcome to musicTrain.js!')
     });
 });
