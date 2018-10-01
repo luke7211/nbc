@@ -23,6 +23,14 @@ function setDifficulties(){
 	hard = 'hard';
 };
 
+var songList = {
+	songs: [],
+	addSong: function(name, chords, difficulty){
+		this.songs.push({name: name, 
+						 chords: chords,
+						 difficulty: difficulty});
+		}
+};
 
 function setSongs(){
 	imagine = ['c', 'cmaj7', 'f', 'am', 'dm', 'g', 'e7']; 
