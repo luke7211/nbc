@@ -24,10 +24,9 @@ toxic = ['cm', 'eb', 'g', 'cdim', 'eb7', 'd7', 'db7', 'ab', 'gmaj7', 'g7'];
 bulletproof = ['d#m', 'g#', 'b', 'f#', 'g#m', 'c#'];
 
 var songs = [];
-var labels = [];
 var allChords = new Set();
-var labelCounts = [];
-var labelProbabilities = [];
+var labelCounts = {};
+var labelProbabilities = {};
 var chordCountsInLabels = {};
 var probabilityOfChordsInLabels = {};
 
@@ -35,7 +34,6 @@ var probabilityOfChordsInLabels = {};
 
 function train(chords, label){ 
 	songs.push([label, chords]); 
-	labels.push(label);
 	chords.forEach(chord => allChords.add(chord));
 	if(Object.keys(labelCounts).includes(label)){
 		labelCounts[label] = labelCounts[label] + 1; }
