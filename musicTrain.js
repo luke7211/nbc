@@ -1,5 +1,13 @@
 // songs
 
+function fileName(){ 
+	var theError = new Error("here I am");
+	return /\/(\w+\.js)\:/.exec(theError.stack)[1];
+};
+
+console.log(`Welcome to ${fileName()}!`);
+
+
 imagine = ['c', 'cmaj7', 'f', 'am', 'dm', 'g', 'e7']; 
 somewhereOverTheRainbow = ['c', 'em', 'f', 'g', 'am']; 
 tooManyCooks = ['c', 'g', 'f'];
