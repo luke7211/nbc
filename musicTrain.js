@@ -94,7 +94,6 @@ setProbabilityOfChordsInLabels();
 
 function classify(chords){
 	var smoothing = 1.01;
-	console.log(labelProbabilities);
 	var classified = new Map(); 
 	labelProbabilities.forEach(function(_, difficulty){
 		var first = labelProbabilities.get(difficulty) + smoothing; 
@@ -106,7 +105,6 @@ function classify(chords){
 		});
 		classified.set(difficulty, first);
 	});
-	//console.log(classified);
 	return classified;
 };
 
@@ -130,4 +128,9 @@ describe('the file', function() {
 	it('sets welcome message', function(){
 		wish(welcomeMessage() === 'Welcome to musicTrain.js!')
     });
+    it('label probabilities', function(){ 
+    	wish(labelProbabilities.get('easy') === 0.3333333333333333); 
+    	wish(labelProbabilities.get('medium') === 0.3333333333333333); 
+    	wish(labelProbabilities.get('hard') === 0.3333333333333333);
+	});
 });
